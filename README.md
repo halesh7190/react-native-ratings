@@ -35,15 +35,15 @@
 
 Install the package using yarn or npm:
 
-```yarn add react-native-ratings```
+`yarn add react-native-ratings`
 
-  OR
-  
-```npm install --save react-native-ratings```
+OR
+
+`npm install --save react-native-ratings`
 
 ## Usage
 
-``` js
+```js
 import { Rating, AirbnbRating } from 'react-native-ratings';
 
 const WATER_IMAGE = require('./water.png')
@@ -85,6 +85,18 @@ ratingCompleted(rating) {
   onFinishRating={this.ratingCompleted}
   style={{ paddingVertical: 10 }}
 />
+
+<Rating
+  type='custom'
+  ratingImage={WATER_IMAGE}
+  ratingColor='#3498db'
+  ratingBackgroundColor='#c8c7c8'
+  ratingCount={10}
+  imageSize={30}
+  onFinishRating={this.ratingCompleted}
+  style={{ paddingVertical: 10 }}
+  imageSource={{uri:'https://www.pinclipart.com/picdir/big/394-3949390_computer-icons-clip-art-star-png-icon-transparent.png'}}
+/>
 ```
 
 Also refer to the [`example`](https://github.com/Monte9/react-native-ratings/tree/master/react_native_ratings_example) app for more detailed usage example.
@@ -93,44 +105,43 @@ Also refer to the [`example`](https://github.com/Monte9/react-native-ratings/tre
 
 ### AirbnbRating
 
-| prop | default | type | description |
-| ---- | ---- | ----| ---- |
-| defaultRating | 3 | number | Initial value for the rating |
-| reviews | ['Terrible', 'Bad', 'Okay', 'Good', 'Great'] | string[] | Labels to show when each value is tapped e.g. If the first star is tapped, then value in index 0 will be used as the label |
-| count | 5 | number | Total number of ratings to display |
-| selectedColor | #f1c40f | string (color) | Pass in a custom fill-color for the rating icon |
-| reviewColor | #f1c40f | string (color) | Pass in a custom text color for the review text |
-| reviewSize | 25 | number | Pass in a custom font size for the review text |
-| showRating | `true` | boolean | Determines if to show the reviews above the rating |
-| isDisabled | false | boolean | Whether the rating can be modiefied by the user |
-| onFinishRating | none | function(value: number) | Callback method when the user finishes rating. Gives you the final rating value as a whole number |
-| starContainerStyle | none | object or stylesheet | Custom styles applied to the star container |
+| prop               | default                                      | type                    | description                                                                                                                |
+| ------------------ | -------------------------------------------- | ----------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| defaultRating      | 3                                            | number                  | Initial value for the rating                                                                                               |
+| reviews            | ['Terrible', 'Bad', 'Okay', 'Good', 'Great'] | string[]                | Labels to show when each value is tapped e.g. If the first star is tapped, then value in index 0 will be used as the label |
+| count              | 5                                            | number                  | Total number of ratings to display                                                                                         |
+| selectedColor      | #f1c40f                                      | string (color)          | Pass in a custom fill-color for the rating icon                                                                            |
+| reviewColor        | #f1c40f                                      | string (color)          | Pass in a custom text color for the review text                                                                            |
+| reviewSize         | 25                                           | number                  | Pass in a custom font size for the review text                                                                             |
+| showRating         | `true`                                       | boolean                 | Determines if to show the reviews above the rating                                                                         |
+| isDisabled         | false                                        | boolean                 | Whether the rating can be modiefied by the user                                                                            |
+| onFinishRating     | none                                         | function(value: number) | Callback method when the user finishes rating. Gives you the final rating value as a whole number                          |
+| starContainerStyle | none                                         | object or stylesheet    | Custom styles applied to the star container                                                                                |
 
 ### RatingProps
 
-| prop | default | type | description |
-| ---- | ---- | ----| ---- |
-| type | `star` | string | Choose one of the built-in types: `star`, `rocket`, `bell`, `heart` or use type `custom` to render a custom image (optional) |
-| ratingImage | `star` | string | Pass in a custom image source; use this along with `type='custom'` prop above (optional) |
-| ratingColor | #f1c40f | string (color) | Pass in a custom fill-color for the rating icon; use this along with `type='custom'` prop above (optional) |
-| ratingBackgroundColor | `white` | string (color) | Pass in a custom background-fill-color for the rating icon; use this along with `type='custom'` prop above (optional) |
-| tintColor | none | string | Color used to change the background of the rating icon (optional)|
-| ratingCount | 5 | number | The number of rating images to display (optional) |
-| ratingTextColor | none | string | Color used for the text labels |
-| imageSize | 50 | number | The size of each rating image (optional) |
-| showRating | none | boolean | Displays the Built-in Rating UI to show the rating value in real-time (optional) |
-| readonly | false | boolean | Whether the rating can be modiefied by the user |
-| startingValue | `ratingCount/2` | number | The initial rating to render |
-| fractions | 2 | number | The number of decimal places for the rating value; must be between 0 and 20 |
-| minValue | 0 | number | The minimum value the user can select |
-| style | none | style | Exposes style prop to add additonal styling to the container view (optional) |
-| onStartRating | none | function | Callback method when the user starts rating |
-| onFinishRating | none | function(rating: number) | Callback method when the user finishes rating. Gives you the final rating value as a whole number (required) |
+| prop                  | default         | type                     | description                                                                                                                  |
+| --------------------- | --------------- | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------- |
+| type                  | `star`          | string                   | Choose one of the built-in types: `star`, `rocket`, `bell`, `heart` or use type `custom` to render a custom image (optional) |
+| ratingImage           | `star`          | string                   | Pass in a custom image source; use this along with `type='custom'` prop above (optional)                                     |
+| ratingColor           | #f1c40f         | string (color)           | Pass in a custom fill-color for the rating icon; use this along with `type='custom'` prop above (optional)                   |
+| ratingBackgroundColor | `white`         | string (color)           | Pass in a custom background-fill-color for the rating icon; use this along with `type='custom'` prop above (optional)        |
+| tintColor             | none            | string                   | Color used to change the background of the rating icon (optional)                                                            |
+| ratingCount           | 5               | number                   | The number of rating images to display (optional)                                                                            |
+| ratingTextColor       | none            | string                   | Color used for the text labels                                                                                               |
+| imageSize             | 50              | number                   | The size of each rating image (optional)                                                                                     |
+| showRating            | none            | boolean                  | Displays the Built-in Rating UI to show the rating value in real-time (optional)                                             |
+| readonly              | false           | boolean                  | Whether the rating can be modiefied by the user                                                                              |
+| startingValue         | `ratingCount/2` | number                   | The initial rating to render                                                                                                 |
+| fractions             | 2               | number                   | The number of decimal places for the rating value; must be between 0 and 20                                                  |
+| minValue              | 0               | number                   | The minimum value the user can select                                                                                        |
+| style                 | none            | style                    | Exposes style prop to add additonal styling to the container view (optional)                                                 |
+| onStartRating         | none            | function                 | Callback method when the user starts rating                                                                                  |
+| onFinishRating        | none            | function(rating: number) | Callback method when the user finishes rating. Gives you the final rating value as a whole number (required)                 |
 
 ## Try it out
 
 You can try it out with Expo [here](https://expo.io/@monte9/react-native-ratings). Or you can also run the [`example`](https://github.com/Monte9/react-native-ratings/tree/master/react_native_ratings_example) app locally.
-
 
 ## Motivation
 
